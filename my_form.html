@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title>DS_TH</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<style>
+			.jumbotron { 
+			    background-color: #E60900; /* Red */
+			    color: #ffffff;
+			    padding: 210px 25px;
+			}
+			.bg-1 { 
+			    background-color: #333; /* Green */
+			    color: #ffffff;
+			}
+			.bg-2 { 
+			    background-color: #474e5d; /* Dark Blue */
+			    color: #ffffff;
+			}
+			.bg-3 { 
+			    background-color: #ffffff; /* White */
+			    color: #555555;
+			    padding-left: 100px;
+			}
+			.bg-4 { 
+			    background-color: #2f2f2f;
+			    color: #ffffff;
+			}
+			.container-fluid {
+			    padding-top: 70px;
+			    padding-bottom: 70px;
+			    padding-left: : 50px;
+			    padding-right: 50px
+			}
+			.navbar {
+			    padding-top: 15px;
+			    padding-bottom: 15px;
+			    border: 0;
+			    border-radius: 0;
+			    margin-bottom: 0;
+			    font-size: 12px;
+			    letter-spacing: 5px;
+			}
+
+			.navbar-nav li a:hover {
+			    color: #1abc9c !important;
+			}
+			body {
+			    font: 20px "Roboto", sans-serif;
+			    line-height: 1.8;
+			    color: #f5f6f7;
+			}
+
+			p {font-size: 16px;}
+
+			.margin {margin-bottom: 45px;}
+
+			.logo {
+			    font-size: 200px;
+			}
+			@media screen and (max-width: 768px) {
+			    .col-sm-4 {
+			        text-align: center;
+/*			        margin: 25px 0;
+*/			    }
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+					<a class="navbar-brand" href="#">HOME</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">ABOUT</a></li>
+						<li><a href="#">RESEARCH</a></li>
+						<li><a href="#">CONTACT</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="jumbotron text-center">
+			<h1>Are machines learning your job?</h1> 
+			<p>Find out how you can avoid being left behind</p>
+			<form class="form-inline" action = "http://localhost:5000/result" method = "POST">
+				<div class="input-group">
+					<input type = "text" class=form-control size='50' placeholder='Job URL' name = "url">
+					<div class="input-group-btn">
+						<button type="submit" name="my-form" class="btn btn-danger">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<!-- <div class="container-fluid bg-1 text-center">
+			<h1>Are machines learning my job?</h1>
+			<img src="/static/brain.jpg" alt="brain" class="img-circle" width=device-width>
+			<h3>Find out below</h3>
+		</div> -->
+
+		<!-- <div class="container-fluid bg-2 text-center">
+			<form action = "http://localhost:5000/result" method = "POST">
+				<h3>Are machines learning your job?</h3>
+				<p> Copy a job description below<p>
+				<input type = "text" name = "url">
+				<input type="submit" name="my-form" value="Submit">
+
+			</form>
+		</div> -->
+
+		<!-- <div class="container-fluid bg-3 text-center">
+			<div class="row">
+				<div class="col-sm-4">
+					<h2>Your automation score</h2>
+					<h4>There is a {{ automation_score }} chance that your job will be fully automated in the future </h4> 
+				</div>
+				<div class="col-sm-8">
+					<span class="glyphicon glyphicon-globe logo"></span> 
+				</div>
+			</div>
+		</div>
+
+		<div class="container-fluid bg-2 text-center">
+			<h3>Protected job attributes</h1>
+			<p>...<p>
+		</div>
+ -->
+	<footer class="container-fluid bg-4 text-center">
+		<p>A Data Science project by Taichi Hoshino</p>
+	</footer>	
+		
+	</body>
+</html>
+
+
+

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<title>DS_TH</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<style>
+			.jumbotron { 
+			    background-color: #E60900; /* Red */
+			    color: #ffffff;
+			    padding: 90px 25px;
+			}
+			.bg-1 { 
+			    background-color: #F8F8F8; /* Grey */
+			    color: #555555;
+			}
+			.bg-2 { 
+			    background-color: ##f8f8f8; /* Light Grey */
+			    color: #ffffff;
+			}
+			.bg-3 { 
+			    background-color: ##f8f8f8; /* White */
+			    color: #E60900; /* Red */
+			    padding-top:110px;
+			    padding-bottom:110px;
+			}
+			.bg-4 { 
+			    background-color: #2f2f2f;
+			    color: #ffffff;
+			}
+			.bg-5 { 
+			    background-color: #E60900; /* Red */
+			    color: #ffffff;
+			    padding: 100px 25px;
+			}
+			.bg-6 { 
+			    background-color: ##f8f8f8; /* White */
+			    color: #555555; /* Dark grey */
+			}
+			.container-fluid {
+			    padding-top: 50px;
+			    padding-bottom: 50px;
+			    padding-left: : 50px;
+			    padding-right: 50px
+			}
+			.navbar {
+			    padding-top: 15px;
+			    padding-bottom: 15px;
+			    border: 0;
+			    border-radius: 0;
+			    margin-bottom: 0;
+			    font-size: 12px;
+			    letter-spacing: 5px;
+			}
+
+			.navbar-nav li a:hover {
+			    color: #1abc9c !important;
+			}
+			body {
+			    font: 20px "Roboto", sans-serif;
+			    line-height: 1.8;
+			    color: #f5f6f7;
+			}
+
+			p {font-size: 16px;}
+
+			.margin {margin-bottom: 45px;}
+
+			.logo {
+			    font-size: 200px;
+			}
+			@media screen and (max-width: 768px) {
+			    .col-sm-4 {
+			        text-align: center;
+/*			        margin: 25px 0;
+*/			    }
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+					<a class="navbar-brand" href="#">HOME</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">ABOUT</a></li>
+						<li><a href="#">RESEARCH</a></li>
+						<li><a href="#">CONTACT</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="bg-3 text-center">
+			<h1>Are machines learning your job?</h1> 
+			<!-- <p>Find out how you can avoid being left behind</p>  -->
+			<!-- <form class="form-inline" action = "http://localhost:5000/result" method = "POST">
+				<div class="input-group">
+					<input type = "text" class=form-control size='50' placeholder='Job URL' name = "url">
+					<div class="input-group-btn">
+						<button type="submit" name="my-form" class="btn btn-danger">Submit</button>
+					</div>
+				</div>
+			</form> -->
+		</div>
+
+		<div class="jumbotron text-center">
+			<p>Based on your job description, your job has been classified as...</p>
+			<!-- <img src="/static/brain.jpg" alt="brain" class="img-circle" width=device-width> -->
+			<h1>{{ predicted_class }}</h1>
+		</div>
+
+		<!-- <div class="container-fluid bg-2 text-center">
+			<form action = "http://localhost:5000/result" method = "POST">
+				<h3>Are machines learning your job?</h3>
+				<p> Copy a job description below<p>
+				<input type = "text" name = "url">
+				<input type="submit" name="my-form" value="Submit">
+
+			</form>
+		</div> -->
+
+		<div class="container-fluid bg-6 text-center">
+			<div class="row">
+				<!-- <div class="col-sm-6 text-center"> -->
+					<h2>Your Job Automation Risk Assessment</h2>
+					<h4>There is a <strong>{{ automation_score }}</strong> chance that your job will be fully automated in the future<h4>
+					<br>
+				<!-- </div> -->
+				<!-- <div class="col-sm-6 text-center"> -->
+					<embed type="image/svg+xml" src={{gauge|safe}} style='max-width:250px'/>
+	 		 	<!-- </div> -->
+			</div>
+		</div>
+
+			<div class="container-fluid bg-1 text-center">
+				<h2>Most Similar Alternative Jobs</h2>
+				<h3>...with lower automation risk</h3>	
+				<br>
+					<div class="row">
+						<div class="col-sm-4" align="center">
+							<p>#1 Alternative</p>
+							<p><strong>{{ num_1_job }}</strong></p>
+						</div>
+						<div class="col-sm-4" align="center">
+							<p>#2 Alternative</p>
+							<p><strong>{{ num_2_job }}</strong></p>
+						</div>
+						<div class="col-sm-4" align="center">
+							<p>#3 Alternative</p>
+							<p><strong>{{ num_3_job }}</strong></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-4" align="center">
+							<embed type="image/svg+xml" src={{gauge_1|safe}} style='max-width:200px'/>
+						</div>
+						<div class="col-sm-4" align="center">
+							<embed type="image/svg+xml" src={{gauge_2|safe}} style='max-width:200px'/>
+						</div>
+						<div class="col-sm-4" align="center">
+							<embed type="image/svg+xml" src={{gauge_3|safe}} style='max-width:200px'/>
+						</div>
+					</div>
+			</div>
+
+		<div class="container-fluid bg-6 text-center">
+			<div class="row">
+				<div>
+					<h2>The most human attributes</h2>
+					<h4>These nine attributes have the strongest negative correlation with job automation.</h4>
+					<h4>You can use them as a guide to maintaining longevity in your field</h4>
+				</div>
+				<div class="container" align="center">
+					<embed type="image/svg+xml" src={{radar|safe}} style='max-width:900px'/>
+				</div>
+			</div>
+		</div>	
+
+
+	<footer class="container-fluid bg-4 text-center">
+		<p>A Data Science service by Taichi Hoshino</p>
+	</footer>	
+		
+	</body>
+</html>
+	    
+	    
+	    
+	    
+	</body>
+</html>
